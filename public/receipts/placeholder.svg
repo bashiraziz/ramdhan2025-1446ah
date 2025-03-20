@@ -1,0 +1,97 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1000" fill="#f8fafc"/>
+  <rect x="50" y="50" width="700" height="900" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Header -->
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#1e293b" font-weight="bold">RECEIPT</text>
+  
+  <!-- Company Info -->
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#334155">Store Name</text>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">123 Main Street, City, Country</text>
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Tel: +123 456 7890</text>
+  
+  <!-- Receipt Details -->
+  <line x1="100" y1="230" x2="700" y2="230" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <text x="120" y="260" font-family="Arial, sans-serif" font-size="14" fill="#334155">Receipt #:</text>
+  <text x="250" y="260" font-family="Arial, sans-serif" font-size="14" fill="#64748b">RECEIPT-12345</text>
+  
+  <text x="120" y="290" font-family="Arial, sans-serif" font-size="14" fill="#334155">Date:</text>
+  <text x="250" y="290" font-family="Arial, sans-serif" font-size="14" fill="#64748b">March 18, 2025</text>
+  
+  <!-- Items -->
+  <line x1="100" y1="320" x2="700" y2="320" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <text x="120" y="350" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold">Item</text>
+  <text x="500" y="350" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold">Qty</text>
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold" text-anchor="end">Price</text>
+  
+  <line x1="100" y1="360" x2="700" y2="360" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <text x="120" y="390" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Rice</text>
+  <text x="500" y="390" font-family="Arial, sans-serif" font-size="14" fill="#64748b">100 kg</text>
+  <text x="600" y="390" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">340,000</text>
+  
+  <text x="120" y="420" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Sugar</text>
+  <text x="500" y="420" font-family="Arial, sans-serif" font-size="14" fill="#64748b">100 kg</text>
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">352,000</text>
+  
+  <text x="120" y="450" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Posho</text>
+  <text x="500" y="450" font-family="Arial, sans-serif" font-size="14" fill="#64748b">100 kg</text>
+  <text x="600" y="450" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">200,000</text>
+  
+  <text x="120" y="480" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Cooking Oil</text>
+  <text x="500" y="480" font-family="Arial, sans-serif" font-size="14" fill="#64748b">3 boxes</text>
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">258,000</text>
+  
+  <text x="120" y="510" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Green Bags</text>
+  <text x="500" y="510" font-family="Arial, sans-serif" font-size="14" fill="#64748b">60 pcs</text>
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">18,000</text>
+  
+  <text x="120" y="540" font-family="Arial, sans-serif" font-size="14" fill="#64748b">White Bags</text>
+  <text x="500" y="540" font-family="Arial, sans-serif" font-size="14" fill="#64748b">20 pcs</text>
+  <text x="600" y="540" font-family="Arial, sans-serif" font-size="14" fill="#64748b" text-anchor="end">4,000</text>
+  
+  <!-- Total -->
+  <line x1="100" y1="570" x2="700" y2="570" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <text x="450" y="600" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold">Subtotal:</text>
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold" text-anchor="end">1,172,000</text>
+  
+  <text x="450" y="630" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold">Tax:</text>
+  <text x="600" y="630" font-family="Arial, sans-serif" font-size="14" fill="#334155" font-weight="bold" text-anchor="end">0</text>
+  
+  <line x1="450" y1="640" x2="600" y2="640" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <text x="450" y="670" font-family="Arial, sans-serif" font-size="16" fill="#334155" font-weight="bold">TOTAL:</text>
+  <text x="600" y="670" font-family="Arial, sans-serif" font-size="16" fill="#334155" font-weight="bold" text-anchor="end">UGX 1,172,000</text>
+  
+  <!-- Footer -->
+  <line x1="100" y1="700" x2="700" y2="700" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <text x="400" y="730" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Thank you for your purchase!</text>
+  <text x="400" y="760" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Ramadan Food Distribution 1446 AH</text>
+  
+  <!-- Barcode -->
+  <rect x="300" y="800" width="200" height="50" fill="#000000"/>
+  <rect x="310" y="800" width="2" height="50" fill="#ffffff"/>
+  <rect x="320" y="800" width="4" height="50" fill="#ffffff"/>
+  <rect x="330" y="800" width="1" height="50" fill="#ffffff"/>
+  <rect x="340" y="800" width="3" height="50" fill="#ffffff"/>
+  <rect x="350" y="800" width="2" height="50" fill="#ffffff"/>
+  <rect x="360" y="800" width="5" height="50" fill="#ffffff"/>
+  <rect x="370" y="800" width="1" height="50" fill="#ffffff"/>
+  <rect x="380" y="800" width="4" height="50" fill="#ffffff"/>
+  <rect x="390" y="800" width="2" height="50" fill="#ffffff"/>
+  <rect x="400" y="800" width="3" height="50" fill="#ffffff"/>
+  <rect x="410" y="800" width="1" height="50" fill="#ffffff"/>
+  <rect x="420" y="800" width="5" height="50" fill="#ffffff"/>
+  <rect x="430" y="800" width="2" height="50" fill="#ffffff"/>
+  <rect x="440" y="800" width="4" height="50" fill="#ffffff"/>
+  <rect x="450" y="800" width="1" height="50" fill="#ffffff"/>
+  <rect x="460" y="800" width="3" height="50" fill="#ffffff"/>
+  <rect x="470" y="800" width="2" height="50" fill="#ffffff"/>
+  <rect x="480" y="800" width="5" height="50" fill="#ffffff"/>
+  
+  <text x="400" y="870" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#64748b">1803202501014</text>
+</svg>

@@ -1,9 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ChevronLeft, Download, Printer } from "lucide-react"
+import { ChevronLeft } from "lucide-react"
 import { getReceiptById } from "@/lib/receipts"
 import { notFound } from "next/navigation"
-import DeleteReceiptButton from "./delete-button"
+import ReceiptActions from "@/components/receipt-actions"
 
 export default async function ReceiptDetails({ params }: { params: { id: string } }) {
   // Find the receipt with the matching ID
@@ -31,25 +31,9 @@ export default async function ReceiptDetails({ params }: { params: { id: string 
           <div className="flex justify-between items-start mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-800">Receipt #{receipt.receiptNumber}</h2>
-              <p className="text-gray-600">Date: {receipt.date}</p>
+              <p className="text-gray-600">Date: {new Date(receipt.date).toLocaleDateString()}</p>
             </div>
-            <div className="flex gap-2">
-              <button className="flex items-center gap-1 px-3 py-2 bg-blue-50 text-blue-700 rounded-md hover:bg-blue-100">
-                <Printer className="h-4 w-4" />
-                Print
-              </button>
-              {receipt.imagePath && (
-                <Link
-                  href={receipt.imagePath}
-                  download={`receipt-${receipt.receiptNumber}.jpg`}
-                  className="flex items-center gap-1 px-3 py-2 bg-green-50 text-green-700 rounded-md hover:bg-green-100"
-                >
-                  <Download className="h-4 w-4" />
-                  Download
-                </Link>
-              )}
-              <DeleteReceiptButton id={receipt.id} />
-            </div>
+            <ReceiptActions receiptNumber={receipt.receiptNumber} imagePath={receipt.imagePath} />
           </div>
 
           <div className="border-t border-gray-200 pt-6">
@@ -73,12 +57,13 @@ export default async function ReceiptDetails({ params }: { params: { id: string 
             {receipt.imagePath ? (
               <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 text-center mb-6">
                 <p className="text-gray-500 mb-2">Receipt Image</p>
-                <div className="relative h-64 w-full">
+                <div className="relative h-96 w-full">
                   <Image
                     src={receipt.imagePath || "/placeholder.svg"}
                     alt={`Receipt ${receipt.receiptNumber}`}
                     fill
                     className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 768px"
                   />
                 </div>
               </div>
@@ -114,4 +99,3 @@ export default async function ReceiptDetails({ params }: { params: { id: string 
     </div>
   )
 }
-

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Search, Filter } from "lucide-react"
+import { Search, Filter, FileText } from "lucide-react"
 import FinancialCharts from "@/components/financial-charts"
 
 // Detailed outflow data from the provided image
@@ -274,11 +274,10 @@ const outflowData = [
 
 // Detailed inflow data from the provided image
 const inflowData = [
-  { id: 1, date: "2/24/2025", location: "Lira", amount: 25100000, status: "Received" },
-  { id: 2, date: "2/24/2025", location: "Kampala", amount: 1968170, status: "Received" },
-  // New inflow entries
+  { id: 1, date: "2/24/2025", location: "Lira", amount: 25100000, status: "Received", usdAmount: 7025 },
+  { id: 2, date: "2/24/2025", location: "Kampala", amount: 1968170, status: "Received", usdAmount: 550 },
   { id: 4, date: "3/9/2025", location: "Kampala", amount: 2500000, status: "Received", usdAmount: 700 },
-  { id: 3, date: "3/10/2025", location: "Lira", amount: 24100922, status: "Received" },
+  { id: 3, date: "3/10/2025", location: "Lira", amount: 24100922, status: "Received", usdAmount: 6825 },
   { id: 5, date: "3/17/2025", location: "Rehmant ul Yateem", amount: 1070331, status: "Received", usdAmount: 300 },
   { id: 6, date: "3/17/2025", location: "SISU Orphanage", amount: 1070331, status: "Received", usdAmount: 300 },
 ]
@@ -343,14 +342,6 @@ export default function Accounting() {
               Receipts
             </Link>
           </li>
-          <li className="mr-1">
-            <Link
-              href="/accounting/upload"
-              className="inline-block py-2 px-4 text-gray-600 hover:text-green-600 font-medium"
-            >
-              Upload Receipt
-            </Link>
-          </li>
         </ul>
       </div>
 
@@ -366,6 +357,22 @@ export default function Accounting() {
         <div className="p-6">
           <FinancialCharts outflowData={outflowData} inflowData={inflowData} className="bg-white" />
         </div>
+      </div>
+
+      {/* Quick Links */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <Link
+          href="/accounting/receipts"
+          className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+        >
+          <div className="flex flex-col items-center text-center">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <FileText className="h-6 w-6 text-green-600" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">View Receipts</h3>
+            <p className="text-gray-600 text-sm">Browse all receipts for expenses</p>
+          </div>
+        </Link>
       </div>
 
       {/* Tab Navigation */}

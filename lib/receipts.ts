@@ -27,68 +27,106 @@ async function ensureDataDir() {
   }
 }
 
+// Simple function to generate a unique ID without external dependencies
+function generateId(): string {
+  return Date.now().toString() + Math.random().toString(36).substring(2, 9)
+}
+
 // Get all receipts
 export async function getReceipts(): Promise<Receipt[]> {
-  await ensureDataDir()
-
   try {
-    const data = await fs.readFile(RECEIPTS_DATA_FILE, "utf8")
-    return JSON.parse(data)
+    await ensureDataDir()
+
+    try {
+      const data = await fs.readFile(RECEIPTS_DATA_FILE, "utf8")
+      return JSON.parse(data)
+    } catch (error) {
+      console.error("Error reading receipts:", error)
+
+      // Create an empty receipts file if it doesn't exist
+      const initialData = [
+        {
+          id: "1",
+          receiptNumber: "475",
+          date: "2025-02-25",
+          vendor: "MTU Best Miller",
+          amount: 3990000,
+          description: "Posho 2100 kg",
+          category: "Food Supplies",
+          imagePath: "/receipts/receipt-placeholder.svg",
+          createdAt: "2025-02-25T10:30:00Z",
+        },
+        {
+          id: "2",
+          receiptNumber: "571",
+          date: "2025-03-05",
+          vendor: "MTU Best Miller",
+          amount: 6930000,
+          description: "Rice 2100 kg",
+          category: "Food Supplies",
+          imagePath: "/receipts/receipt-placeholder.svg",
+          createdAt: "2025-03-05T11:15:00Z",
+        },
+      ]
+
+      try {
+        await fs.writeFile(RECEIPTS_DATA_FILE, JSON.stringify(initialData, null, 2), "utf8")
+        return initialData
+      } catch (writeError) {
+        console.error("Error creating receipts file:", writeError)
+        return []
+      }
+    }
   } catch (error) {
-    // If file doesn't exist, return empty array
+    console.error("Unexpected error in getReceipts:", error)
     return []
   }
 }
 
 // Get a single receipt by ID
 export async function getReceiptById(id: string): Promise<Receipt | null> {
-  const receipts = await getReceipts()
-  return receipts.find((receipt) => receipt.id === id) || null
+  try {
+    const receipts = await getReceipts()
+    return receipts.find((receipt) => receipt.id === id) || null
+  } catch (error) {
+    console.error("Error in getReceiptById:", error)
+    return null
+  }
 }
 
 // Add a new receipt
 export async function addReceipt(receiptData: Omit<Receipt, "id" | "createdAt">): Promise<Receipt> {
-  await ensureDataDir()
+  try {
+    await ensureDataDir()
 
-  const receipts = await getReceipts()
+    const receipts = await getReceipts()
+    const newReceipt: Receipt = {
+      id: generateId(),
+      createdAt: new Date().toISOString(),
+      ...receiptData,
+    }
+    receipts.push(newReceipt)
 
-  const newReceipt: Receipt = {
-    id: Date.now().toString(),
-    ...receiptData,
-    createdAt: new Date().toISOString(),
+    await fs.writeFile(RECEIPTS_DATA_FILE, JSON.stringify(receipts, null, 2), "utf8")
+    return newReceipt
+  } catch (error) {
+    console.error("Error in addReceipt:", error)
+    throw new Error("Failed to add receipt")
   }
-
-  receipts.push(newReceipt)
-
-  await fs.writeFile(RECEIPTS_DATA_FILE, JSON.stringify(receipts, null, 2))
-  return newReceipt
 }
 
-// Delete a receipt
-export async function deleteReceipt(id: string): Promise<boolean> {
-  const receipts = await getReceipts()
-  const initialLength = receipts.length
+// Delete a receipt by ID
+export async function deleteReceipt(id: string): Promise<void> {
+  try {
+    await ensureDataDir()
 
-  const filteredReceipts = receipts.filter((receipt) => receipt.id !== id)
+    let receipts = await getReceipts()
+    receipts = receipts.filter((receipt) => receipt.id !== id)
 
-  if (filteredReceipts.length === initialLength) {
-    return false // Receipt not found
+    await fs.writeFile(RECEIPTS_DATA_FILE, JSON.stringify(receipts, null, 2), "utf8")
+  } catch (error) {
+    console.error("Error in deleteReceipt:", error)
+    throw new Error("Failed to delete receipt")
   }
-
-  await fs.writeFile(RECEIPTS_DATA_FILE, JSON.stringify(filteredReceipts, null, 2))
-
-  // If receipt has an image, delete it too
-  const receipt = receipts.find((r) => r.id === id)
-  if (receipt?.imagePath) {
-    try {
-      const imagePath = path.join(process.cwd(), "public", receipt.imagePath)
-      await fs.unlink(imagePath)
-    } catch (error) {
-      console.error("Failed to delete receipt image:", error)
-      // Continue even if image deletion fails
-    }
-  }
-
-  return true
 }
 

@@ -1,0 +1,81 @@
+[
+    {
+      "id": "1",
+      "receiptNumber": "475",
+      "date": "2025-02-25",
+      "vendor": "MTU Best Miller",
+      "amount": 3990000,
+      "description": "Posho 2100 kg",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/475.jpg",
+      "createdAt": "2025-02-25T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "receiptNumber": "571",
+      "date": "2025-03-05",
+      "vendor": "MTU Best Miller",
+      "amount": 6930000,
+      "description": "Rice 2100 kg",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/571.jpg",
+      "createdAt": "2025-03-05T11:15:00Z"
+    },
+    {
+      "id": "3",
+      "receiptNumber": "LE-52423",
+      "date": "2025-02-26",
+      "vendor": "Sagar Trading",
+      "amount": 8745000,
+      "description": "Sugar 700 kg, Cooking Oil, Bags",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/27808.jpg",
+      "createdAt": "2025-02-26T14:20:00Z"
+    },
+    {
+      "id": "4",
+      "receiptNumber": "27808",
+      "date": "2025-03-05",
+      "vendor": "Jamiru Mutto",
+      "amount": 1443500,
+      "description": "Sugar, Rice, Cooking Oil, Bags",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/27808.jpg",
+      "createdAt": "2025-03-05T16:45:00Z"
+    },
+    {
+      "id": "5",
+      "receiptNumber": "27812",
+      "date": "2025-03-06",
+      "vendor": "Jamiru Mutto",
+      "amount": 454500,
+      "description": "Sugar, Rice, Cooking Oil, Bags",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/27812.jpg",
+      "createdAt": "2025-03-06T09:30:00Z"
+    },
+    {
+      "id": "6",
+      "receiptNumber": "1803202501014",
+      "date": "2025-03-18",
+      "vendor": "Trend Shoppers",
+      "amount": 1172000,
+      "description": "Rice, Sugar, Posho, Cooking Oil, Bags",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/1803202501014.jpg",
+      "createdAt": "2025-03-18T13:20:00Z"
+    },
+    {
+      "id": "7",
+      "receiptNumber": "15032025010115",
+      "date": "2025-03-18",
+      "vendor": "Trend Shoppers",
+      "amount": 1328000,
+      "description": "Rice, Sugar, Posho, Cooking Oil",
+      "category": "Food Supplies",
+      "imagePath": "/receipts/15032025010115.jpg",
+      "createdAt": "2025-03-18T15:45:00Z"
+    }
+  ]
+  
+  
