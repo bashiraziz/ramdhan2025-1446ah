@@ -17,12 +17,13 @@ export default function Home() {
 
       {/* Main Image */}
       <section className="container mx-auto px-4 py-8">
-        <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden">
+        <div className="relative w-full h-[381px] md:h-[508px] rounded-lg overflow-hidden">
           <Image
-            src="/placeholder.svg?height=400&width=800"
+            src="/images/hero-image.jpeg"
             alt="Ramadan food distribution in Uganda"
             fill
             className="object-cover"
+            priority
           />
           <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4">
             <h2 className="text-xl font-bold">Serving Communities Across Uganda</h2>
@@ -156,7 +157,50 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Financial Dashboard Preview */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-green-800">Financial Dashboard</h2>
+            <Link href="/accounting" className="text-green-600 hover:underline inline-flex items-center">
+              View full dashboard <ArrowRight className="h-4 w-4 ml-1" />
+            </Link>
+          </div>
+
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <div className="bg-green-50 p-4 rounded-lg border border-green-100">
+                <h3 className="text-base font-semibold text-green-800 mb-1">Total Donations</h3>
+                <p className="text-xl font-bold text-green-700">$16,601</p>
+                <p className="text-xs text-gray-500 mt-1">From 13 donors</p>
+              </div>
+
+              <div className="bg-green-50 p-4 rounded-lg border border-green-100">
+                <h3 className="text-base font-semibold text-green-800 mb-1">Total Expenses</h3>
+                <p className="text-xl font-bold text-red-600">UGX 55,809,754</p>
+                <p className="text-xs text-gray-500 mt-1">Across 29 transactions</p>
+              </div>
+
+              <div className="bg-green-50 p-4 rounded-lg border border-green-100">
+                <h3 className="text-base font-semibold text-green-800 mb-1">Remaining Balance</h3>
+                <p className="text-xl font-bold text-green-700">$901</p>
+                <p className="text-xs text-gray-500 mt-1">For ongoing distribution</p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/accounting"
+                className="inline-flex items-center px-6 py-3 border border-green-600 text-green-600 bg-white rounded-md font-medium hover:bg-green-50 transition-colors"
+              >
+                View Financial Dashboard
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
-

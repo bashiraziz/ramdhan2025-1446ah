@@ -21,7 +21,7 @@ export default function ImageCarousel({ images, onImageChange }: ImageCarouselPr
   // Handle empty images array
   if (images.length === 0) {
     return (
-      <div className="relative w-full h-[400px] bg-gray-100 rounded-lg flex items-center justify-center">
+      <div className="relative w-full h-[480px] bg-gray-100 rounded-lg flex items-center justify-center">
         <p className="text-gray-500">No images available</p>
       </div>
     )
@@ -47,7 +47,7 @@ export default function ImageCarousel({ images, onImageChange }: ImageCarouselPr
   }
 
   return (
-    <div className="relative w-full h-[400px] group">
+    <div className="relative w-full h-[480px] group">
       <div className="relative w-full h-full overflow-hidden rounded-lg">
         <Image
           src={

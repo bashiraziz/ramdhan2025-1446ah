@@ -278,9 +278,9 @@ const inflowData = [
   { id: 2, date: "2/24/2025", location: "Kampala", amount: 1968170, status: "Received" },
   // New inflow entries
   { id: 4, date: "3/9/2025", location: "Kampala", amount: 2500000, status: "Received", usdAmount: 700 },
-  { id: 3, date: "3/10/2025", location: "Lira", amount: 24000000, status: "Received" },
-  { id: 5, date: "3/17/2025", location: "Rehmant ul Yateem", amount: 1050000, status: "Received", usdAmount: 300 },
-  { id: 6, date: "3/17/2025", location: "SISU Orphanage", amount: 1050000, status: "Received", usdAmount: 300 },
+  { id: 3, date: "3/10/2025", location: "Lira", amount: 24100922, status: "Received" },
+  { id: 5, date: "3/17/2025", location: "Rehmant ul Yateem", amount: 1070331, status: "Received", usdAmount: 300 },
+  { id: 6, date: "3/17/2025", location: "SISU Orphanage", amount: 1070331, status: "Received", usdAmount: 300 },
 ]
 
 export default function Accounting() {
@@ -354,7 +354,22 @@ export default function Accounting() {
         </ul>
       </div>
 
-      <div className="mb-8">
+      {/* Summary Cards - shown on all tabs */}
+      <SummaryCards />
+
+      {/* Financial Visualization - Always visible */}
+      <div className="bg-white rounded-lg border border-gray-200 shadow-sm mb-8 overflow-hidden">
+        <div className="p-6 border-b border-gray-200 bg-green-50">
+          <h2 className="text-xl font-bold text-green-800">Financial Dashboard</h2>
+          <p className="text-gray-600">Visual overview of all financial activities for Ramadan 1446 AH</p>
+        </div>
+        <div className="p-6">
+          <FinancialCharts outflowData={outflowData} inflowData={inflowData} className="bg-white" />
+        </div>
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="mb-6">
         <h2 className="text-xl font-bold text-green-800 mb-4">Financial Records</h2>
         <p className="text-gray-600 mb-4">Complete financial records for Ramadan 1446 AH food distribution.</p>
 
@@ -376,242 +391,229 @@ export default function Accounting() {
           </button>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="mb-6">
-          <div className="inline-flex rounded-md shadow-sm" role="group">
-            <button
-              className={`px-4 py-2 text-sm font-medium ${activeTab === "inflows" ? "bg-green-50 text-green-700 border border-green-200" : "bg-white text-gray-700 border-t border-b border-l border-gray-200 hover:bg-gray-100"} rounded-l-lg`}
-              onClick={() => setActiveTab("inflows")}
-            >
-              Inflows
-            </button>
-            <button
-              className={`px-4 py-2 text-sm font-medium ${activeTab === "outflows" ? "bg-green-50 text-green-700 border-t border-b border-r border-green-200" : "bg-white text-gray-700 border-t border-b border-gray-200 hover:bg-gray-100"}`}
-              onClick={() => setActiveTab("outflows")}
-            >
-              Outflows
-            </button>
-            <button
-              className={`px-4 py-2 text-sm font-medium ${activeTab === "summary" ? "bg-green-50 text-green-700 border border-green-200" : "bg-white text-gray-700 border-t border-b border-r border-gray-200 hover:bg-gray-100"} rounded-r-lg`}
-              onClick={() => setActiveTab("summary")}
-            >
-              Summary
-            </button>
+        <div className="inline-flex rounded-md shadow-sm" role="group">
+          <button
+            className={`px-4 py-2 text-sm font-medium ${activeTab === "inflows" ? "bg-green-50 text-green-700 border border-green-200" : "bg-white text-gray-700 border-t border-b border-l border-gray-200 hover:bg-gray-100"} rounded-l-lg`}
+            onClick={() => setActiveTab("inflows")}
+          >
+            Inflows
+          </button>
+          <button
+            className={`px-4 py-2 text-sm font-medium ${activeTab === "outflows" ? "bg-green-50 text-green-700 border-t border-b border-r border-green-200" : "bg-white text-gray-700 border-t border-b border-gray-200 hover:bg-gray-100"}`}
+            onClick={() => setActiveTab("outflows")}
+          >
+            Outflows
+          </button>
+          <button
+            className={`px-4 py-2 text-sm font-medium ${activeTab === "summary" ? "bg-green-50 text-green-700 border border-green-200" : "bg-white text-gray-700 border-t border-b border-r border-gray-200 hover:bg-gray-100"} rounded-r-lg`}
+            onClick={() => setActiveTab("summary")}
+          >
+            Summary
+          </button>
+        </div>
+      </div>
+
+      {/* Summary Tab Content */}
+      {activeTab === "summary" && (
+        <div className="bg-green-50 p-6 rounded-lg mb-8">
+          <h2 className="text-xl font-bold text-green-800 mb-4">Expense Breakdown</h2>
+          <p className="text-gray-600 mb-4">Overview of expenses by category</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border border-gray-200 rounded-lg p-4 bg-white">
+              <h4 className="font-medium text-gray-700 mb-2">Food Supplies</h4>
+              <p className="text-xl font-bold text-green-700">
+                UGX{" "}
+                {outflowData
+                  .filter((item) => item.category === "Food Supplies")
+                  .reduce((sum, item) => sum + item.amount, 0)
+                  .toLocaleString()}
+              </p>
+            </div>
+            <div className="border border-gray-200 rounded-lg p-4 bg-white">
+              <h4 className="font-medium text-gray-700 mb-2">Packing Supplies</h4>
+              <p className="text-xl font-bold text-green-700">
+                UGX{" "}
+                {outflowData
+                  .filter((item) => item.category === "Packing Supplies")
+                  .reduce((sum, item) => sum + item.amount, 0)
+                  .toLocaleString()}
+              </p>
+            </div>
+            <div className="border border-gray-200 rounded-lg p-4 bg-white">
+              <h4 className="font-medium text-gray-700 mb-2">Transportation</h4>
+              <p className="text-xl font-bold text-green-700">
+                UGX{" "}
+                {outflowData
+                  .filter((item) => item.category === "Transportation")
+                  .reduce((sum, item) => sum + item.amount, 0)
+                  .toLocaleString()}
+              </p>
+            </div>
+            <div className="border border-gray-200 rounded-lg p-4 bg-white">
+              <h4 className="font-medium text-gray-700 mb-2">Labor</h4>
+              <p className="text-xl font-bold text-green-700">
+                UGX{" "}
+                {outflowData
+                  .filter((item) => item.category === "Labor")
+                  .reduce((sum, item) => sum + item.amount, 0)
+                  .toLocaleString()}
+              </p>
+            </div>
           </div>
         </div>
+      )}
 
-        {/* Summary Cards - shown on all tabs */}
-        <SummaryCards />
+      {/* Inflows Tab Content */}
+      {activeTab === "inflows" && (
+        <div className="bg-green-50 p-6 rounded-lg mb-8">
+          <h2 className="text-xl font-bold text-green-800 mb-4">Fund Disbursements (Inflows)</h2>
+          <p className="text-gray-600 mb-4">All disbursements received for Ramadan 1446 AH</p>
 
-        {/* Summary Tab Content */}
-        {activeTab === "summary" && (
-          <div className="bg-green-50 p-6 rounded-lg mb-8">
-            <h2 className="text-xl font-bold text-green-800 mb-4">Financial Summary</h2>
-            <p className="text-gray-600 mb-4">Overview of all financial activities for Ramadan 1446 AH</p>
-
-            {/* Financial Charts Component */}
-            <FinancialCharts outflowData={outflowData} inflowData={inflowData} />
-
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold text-green-800 mb-4">Expense Breakdown</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border border-gray-200 rounded-lg p-4 bg-white">
-                  <h4 className="font-medium text-gray-700 mb-2">Food Supplies</h4>
-                  <p className="text-xl font-bold text-green-700">
-                    UGX{" "}
-                    {outflowData
-                      .filter((item) => item.category === "Food Supplies")
-                      .reduce((sum, item) => sum + item.amount, 0)
-                      .toLocaleString()}
-                  </p>
-                </div>
-                <div className="border border-gray-200 rounded-lg p-4 bg-white">
-                  <h4 className="font-medium text-gray-700 mb-2">Packing Supplies</h4>
-                  <p className="text-xl font-bold text-green-700">
-                    UGX{" "}
-                    {outflowData
-                      .filter((item) => item.category === "Packing Supplies")
-                      .reduce((sum, item) => sum + item.amount, 0)
-                      .toLocaleString()}
-                  </p>
-                </div>
-                <div className="border border-gray-200 rounded-lg p-4 bg-white">
-                  <h4 className="font-medium text-gray-700 mb-2">Transportation</h4>
-                  <p className="text-xl font-bold text-green-700">
-                    UGX{" "}
-                    {outflowData
-                      .filter((item) => item.category === "Transportation")
-                      .reduce((sum, item) => sum + item.amount, 0)
-                      .toLocaleString()}
-                  </p>
-                </div>
-                <div className="border border-gray-200 rounded-lg p-4 bg-white">
-                  <h4 className="font-medium text-gray-700 mb-2">Labor</h4>
-                  <p className="text-xl font-bold text-green-700">
-                    UGX{" "}
-                    {outflowData
-                      .filter((item) => item.category === "Labor")
-                      .reduce((sum, item) => sum + item.amount, 0)
-                      .toLocaleString()}
-                  </p>
-                </div>
-              </div>
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Date
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Location
+                    </th>
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Amount (UGX)
+                    </th>
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Amount (USD)
+                    </th>
+                    <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {/* Sort inflow data by date (earliest first) */}
+                  {[...inflowData]
+                    .sort((a, b) => {
+                      // Convert dates to comparable format (earliest first)
+                      const dateA = new Date(a.date).getTime()
+                      const dateB = new Date(b.date).getTime()
+                      return dateA - dateB
+                    })
+                    .map((inflow) => (
+                      <tr key={inflow.id} className="hover:bg-gray-50">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{inflow.date}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {inflow.location}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
+                          {inflow.amount.toLocaleString()}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
+                          {inflow.usdAmount ? inflow.usdAmount.toLocaleString() : "—"}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+                            {inflow.status}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  <tr className="bg-green-50 font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Total</td>
+                    <td></td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
+                      {totalInflows.toLocaleString()}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
+                      {inflowData.reduce((sum, item) => sum + (item.usdAmount || 0), 0).toLocaleString()}
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Inflows Tab Content */}
-        {activeTab === "inflows" && (
-          <div className="bg-green-50 p-6 rounded-lg mb-8">
-            <h2 className="text-xl font-bold text-green-800 mb-4">Fund Disbursements (Inflows)</h2>
-            <p className="text-gray-600 mb-4">All disbursements received for Ramadan 1446 AH</p>
+      {/* Outflows Tab Content */}
+      {activeTab === "outflows" && (
+        <div className="bg-green-50 p-6 rounded-lg mb-8">
+          <h2 className="text-xl font-bold text-green-800 mb-4">Distribution Expenses (Outflows)</h2>
+          <p className="text-gray-600 mb-4">All expenses for Ramadan 1446 AH food distribution</p>
 
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-gray-50">
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Date
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Location
-                      </th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Amount (UGX)
-                      </th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Amount (USD)
-                      </th>
-                      <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {/* Sort inflow data by date (earliest first) */}
-                    {[...inflowData]
-                      .sort((a, b) => {
-                        // Convert dates to comparable format (earliest first)
-                        const dateA = new Date(a.date).getTime()
-                        const dateB = new Date(b.date).getTime()
-                        return dateA - dateB
-                      })
-                      .map((inflow) => (
-                        <tr key={inflow.id} className="hover:bg-gray-50">
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{inflow.date}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {inflow.location}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                            {inflow.amount.toLocaleString()}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                            {inflow.usdAmount ? inflow.usdAmount.toLocaleString() : "—"}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                            <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-                              {inflow.status}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    <tr className="bg-green-50 font-medium">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Total</td>
-                      <td></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                        {totalInflows.toLocaleString()}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                        {inflowData.reduce((sum, item) => sum + (item.usdAmount || 0), 0).toLocaleString()}
-                      </td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Date
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Vendor
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Receipt #
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Description
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Category
+                    </th>
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Amount (UGX)
+                    </th>
+                    <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {/* Sort outflow data by date (earliest first) */}
+                  {[...outflowData]
+                    .sort((a, b) => {
+                      // Convert dates to comparable format (earliest first)
+                      const dateA = new Date(a.date).getTime()
+                      const dateB = new Date(b.date).getTime()
+                      return dateA - dateB
+                    })
+                    .map((outflow) => (
+                      <tr key={outflow.id} className="hover:bg-gray-50">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.date}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {outflow.vendor}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.receipt}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.description}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.category}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
+                          {outflow.amount.toLocaleString()}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
+                            Paid
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  <tr className="bg-green-50 font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Total</td>
+                    <td colSpan={4}></td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
+                      {totalOutflows.toLocaleString()}
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-        )}
-
-        {/* Outflows Tab Content */}
-        {activeTab === "outflows" && (
-          <div className="bg-green-50 p-6 rounded-lg mb-8">
-            <h2 className="text-xl font-bold text-green-800 mb-4">Distribution Expenses (Outflows)</h2>
-            <p className="text-gray-600 mb-4">All expenses for Ramadan 1446 AH food distribution</p>
-
-            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-gray-50">
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Date
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Vendor
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Receipt #
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Description
-                      </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Category
-                      </th>
-                      <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Amount (UGX)
-                      </th>
-                      <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {/* Sort outflow data by date (earliest first) */}
-                    {[...outflowData]
-                      .sort((a, b) => {
-                        // Convert dates to comparable format (earliest first)
-                        const dateA = new Date(a.date).getTime()
-                        const dateB = new Date(b.date).getTime()
-                        return dateA - dateB
-                      })
-                      .map((outflow) => (
-                        <tr key={outflow.id} className="hover:bg-gray-50">
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.date}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {outflow.vendor}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.receipt}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.description}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{outflow.category}</td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                            {outflow.amount.toLocaleString()}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                            <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
-                              Paid
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    <tr className="bg-green-50 font-medium">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Total</td>
-                      <td colSpan={4}></td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                        {totalOutflows.toLocaleString()}
-                      </td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }
-
