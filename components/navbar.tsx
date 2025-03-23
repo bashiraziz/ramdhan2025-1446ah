@@ -33,7 +33,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link href="/images" className="hover:underline">
-                Images
+                Media Gallery
               </Link>
             </li>
             <li>

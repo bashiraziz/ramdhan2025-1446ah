@@ -10,6 +10,20 @@ if (!fs.existsSync(path.join(process.cwd(), "data"))) {
   fs.mkdirSync(path.join(process.cwd(), "data"))
 }
 
+// Format a filename into a readable label
+function formatFilenameToLabel(filename) {
+  // Remove file extension
+  const nameWithoutExt = path.basename(filename, path.extname(filename))
+
+  // Replace underscores and hyphens with spaces
+  let label = nameWithoutExt.replace(/[_-]/g, " ")
+
+  // Capitalize first letter of each word
+  label = label.replace(/\b\w/g, (c) => c.toUpperCase())
+
+  return label
+}
+
 // Function to update image labels
 async function updateImageLabels() {
   try {
@@ -38,15 +52,12 @@ async function updateImageLabels() {
     let updated = false
     for (const file of imageFiles) {
       if (!metadata[file]) {
-        // Create a default label from the filename
-        const defaultLabel = path
-          .basename(file, path.extname(file))
-          .replace(/-/g, " ")
-          .replace(/\b\w/g, (l) => l.toUpperCase()) // Capitalize first letter of each word
+        // Create a properly formatted label from the filename
+        const formattedLabel = formatFilenameToLabel(file)
 
-        metadata[file] = defaultLabel
+        metadata[file] = formattedLabel
         updated = true
-        console.log(`Added default label for ${file}: "${defaultLabel}"`)
+        console.log(`Added label for ${file}: "${formattedLabel}"`)
       }
     }
 

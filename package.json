@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-labels": "node scripts/update-image-labels.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

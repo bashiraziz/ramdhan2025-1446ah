@@ -7,18 +7,9 @@ export interface ImageData {
   label: string
 }
 
-// Get all image files from a directory with labels
-export function getImagesFromDirectory(directoryPath: string): ImageData[] {
+// Get image labels from the metadata file
+export function getImageLabels(): Record<string, string> {
   try {
-    const fullPath = path.join(process.cwd(), "public", directoryPath)
-    console.log(`Looking for images in: ${fullPath}`)
-
-    // Check if directory exists
-    if (!fs.existsSync(fullPath)) {
-      console.warn(`Directory not found: ${fullPath}`)
-      return []
-    }
-
     // Check if metadata file exists
     const metadataPath = path.join(process.cwd(), "data", "image-labels.json")
     let metadata: Record<string, string> = {}
@@ -31,6 +22,42 @@ export function getImagesFromDirectory(directoryPath: string): ImageData[] {
         console.error("Error reading image metadata:", error)
       }
     }
+
+    return metadata
+  } catch (error) {
+    console.error("Error getting image labels:", error)
+    return {}
+  }
+}
+
+// Format a filename into a readable label
+function formatFilenameToLabel(filename: string): string {
+  // Remove file extension
+  const nameWithoutExt = path.basename(filename, path.extname(filename))
+
+  // Replace underscores and hyphens with spaces
+  let label = nameWithoutExt.replace(/[_-]/g, " ")
+
+  // Capitalize first letter of each word
+  label = label.replace(/\b\w/g, (c) => c.toUpperCase())
+
+  return label
+}
+
+// Get all image files from a directory with labels
+export function getImagesFromDirectory(directoryPath: string): ImageData[] {
+  try {
+    const fullPath = path.join(process.cwd(), "public", directoryPath)
+    console.log(`Looking for images in: ${fullPath}`)
+
+    // Check if directory exists
+    if (!fs.existsSync(fullPath)) {
+      console.warn(`Directory not found: ${fullPath}`)
+      return []
+    }
+
+    // Get image labels
+    const metadata = getImageLabels()
 
     // Get all files in the directory
     const files = fs.readdirSync(fullPath)
@@ -45,8 +72,8 @@ export function getImagesFromDirectory(directoryPath: string): ImageData[] {
     // Return paths and labels
     return imageFiles.map((file) => {
       const imagePath = `/${directoryPath}/${file}`
-      // Use metadata if available, otherwise use filename without extension as label
-      const label = metadata[file] || path.basename(file, path.extname(file)).replace(/-/g, " ")
+      // Use metadata if available, otherwise format the filename as a label
+      const label = metadata[file] || formatFilenameToLabel(file)
       return {
         path: imagePath,
         label: label,
