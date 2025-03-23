@@ -1,8 +1,14 @@
 import fs from "fs"
 import path from "path"
 
-// Get all image files from a directory
-export function getImagesFromDirectory(directoryPath: string): string[] {
+// Define an interface for image data
+export interface ImageData {
+  path: string
+  label: string
+}
+
+// Get all image files from a directory with labels
+export function getImagesFromDirectory(directoryPath: string): ImageData[] {
   try {
     const fullPath = path.join(process.cwd(), "public", directoryPath)
     console.log(`Looking for images in: ${fullPath}`)
@@ -11,6 +17,19 @@ export function getImagesFromDirectory(directoryPath: string): string[] {
     if (!fs.existsSync(fullPath)) {
       console.warn(`Directory not found: ${fullPath}`)
       return []
+    }
+
+    // Check if metadata file exists
+    const metadataPath = path.join(process.cwd(), "data", "image-labels.json")
+    let metadata: Record<string, string> = {}
+
+    if (fs.existsSync(metadataPath)) {
+      try {
+        const metadataContent = fs.readFileSync(metadataPath, "utf8")
+        metadata = JSON.parse(metadataContent)
+      } catch (error) {
+        console.error("Error reading image metadata:", error)
+      }
     }
 
     // Get all files in the directory
@@ -23,8 +42,16 @@ export function getImagesFromDirectory(directoryPath: string): string[] {
       return imageExtensions.includes(ext)
     })
 
-    // Return paths relative to public directory
-    return imageFiles.map((file) => `/${directoryPath}/${file}`)
+    // Return paths and labels
+    return imageFiles.map((file) => {
+      const imagePath = `/${directoryPath}/${file}`
+      // Use metadata if available, otherwise use filename without extension as label
+      const label = metadata[file] || path.basename(file, path.extname(file)).replace(/-/g, " ")
+      return {
+        path: imagePath,
+        label: label,
+      }
+    })
   } catch (error) {
     console.error("Error reading image directory:", error)
     return []

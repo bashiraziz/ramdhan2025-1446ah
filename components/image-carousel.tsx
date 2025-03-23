@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import type { ImageData } from "@/lib/image-utils"
 
 interface ImageCarouselProps {
-  images: string[]
+  images: ImageData[]
   onImageChange?: (index: number) => void
 }
 
@@ -51,9 +52,11 @@ export default function ImageCarousel({ images, onImageChange }: ImageCarouselPr
       <div className="relative w-full h-full overflow-hidden rounded-lg">
         <Image
           src={
-            images[currentIndex].startsWith("http") ? images[currentIndex] : images[currentIndex] || "/placeholder.svg"
+            images[currentIndex].path.startsWith("http")
+              ? images[currentIndex].path
+              : images[currentIndex].path || "/placeholder.svg"
           }
-          alt={`Distribution image ${currentIndex + 1}`}
+          alt={images[currentIndex].label || `Distribution image ${currentIndex + 1}`}
           fill
           className={`object-cover transition-opacity duration-500 ${isLoading ? "opacity-0" : "opacity-100"}`}
           onLoadingComplete={() => setIsLoading(false)}
@@ -65,6 +68,13 @@ export default function ImageCarousel({ images, onImageChange }: ImageCarouselPr
           </div>
         )}
       </div>
+
+      {/* Image Caption */}
+      {images[currentIndex].label && (
+        <div className="absolute bottom-16 left-0 right-0 bg-black/60 text-white p-3 text-center">
+          <p className="text-sm md:text-base">{images[currentIndex].label}</p>
+        </div>
+      )}
 
       {/* Left Arrow */}
       <div className="hidden group-hover:block absolute top-1/2 left-2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full cursor-pointer">

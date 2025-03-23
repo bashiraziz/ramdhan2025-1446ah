@@ -3,9 +3,10 @@
 import { useState } from "react"
 import ImageCarousel from "./image-carousel"
 import ImageGallery from "./image-gallery"
+import type { ImageData } from "@/lib/image-utils"
 
 interface ImageCarouselWithGalleryProps {
-  images: string[]
+  images: ImageData[]
 }
 
 export default function ImageCarouselWithGallery({ images }: ImageCarouselWithGalleryProps) {
