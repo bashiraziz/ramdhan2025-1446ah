@@ -20,6 +20,9 @@ const inflows = [
 
 // Updated disbursements with new entries
 const disbursements = [
+  // New disbursement added on March 21, 2025
+  { id: 7, date: "3/21/2025", location: "Kampala", amountUGX: 1783930, amountUSD: 500 },
+  // Existing disbursements
   { id: 1, date: "2/24/2025", location: "Lira", amountUGX: 25100000, amountUSD: 7025 },
   { id: 2, date: "2/24/2025", location: "Kampala", amountUGX: 1968170, amountUSD: 550 },
   { id: 3, date: "3/9/2025", location: "Kampala", amountUGX: 2500000, amountUSD: 700 },
@@ -143,20 +146,28 @@ export default function Funds() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {disbursements.map((disbursement) => (
-                  <tr key={disbursement.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{disbursement.date}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {disbursement.location}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
-                      {disbursement.amountUSD.toLocaleString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
-                      {disbursement.amountUGX.toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
+                {/* Sort disbursements by date (most recent first) */}
+                {[...disbursements]
+                  .sort((a, b) => {
+                    // Convert dates to comparable format (most recent first)
+                    const dateA = new Date(a.date).getTime()
+                    const dateB = new Date(b.date).getTime()
+                    return dateB - dateA
+                  })
+                  .map((disbursement) => (
+                    <tr key={disbursement.id} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{disbursement.date}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {disbursement.location}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
+                        {disbursement.amountUSD.toLocaleString()}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
+                        {disbursement.amountUGX.toLocaleString()}
+                      </td>
+                    </tr>
+                  ))}
                 <tr className="bg-gray-50 font-medium">
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Total</td>
                   <td></td>

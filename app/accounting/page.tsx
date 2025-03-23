@@ -274,10 +274,13 @@ const outflowData = [
 
 // Detailed inflow data from the provided image
 const inflowData = [
+  // New disbursement added on March 21, 2025
+  { id: 7, date: "3/21/2025", location: "Kampala", amount: 1783930, status: "Received", usdAmount: 500 },
+  // Existing disbursements
   { id: 1, date: "2/24/2025", location: "Lira", amount: 25100000, status: "Received", usdAmount: 7025 },
   { id: 2, date: "2/24/2025", location: "Kampala", amount: 1968170, status: "Received", usdAmount: 550 },
-  { id: 4, date: "3/9/2025", location: "Kampala", amount: 2500000, status: "Received", usdAmount: 700 },
-  { id: 3, date: "3/10/2025", location: "Lira", amount: 24100922, status: "Received", usdAmount: 6825 },
+  { id: 3, date: "3/9/2025", location: "Kampala", amount: 2500000, status: "Received", usdAmount: 700 },
+  { id: 4, date: "3/10/2025", location: "Lira", amount: 24100922, status: "Received", usdAmount: 6825 },
   { id: 5, date: "3/17/2025", location: "Rehmant ul Yateem", amount: 1070331, status: "Received", usdAmount: 300 },
   { id: 6, date: "3/17/2025", location: "SISU Orphanage", amount: 1070331, status: "Received", usdAmount: 300 },
 ]
@@ -500,13 +503,13 @@ export default function Accounting() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {/* Sort inflow data by date (earliest first) */}
+                  {/* Sort inflow data by date (most recent first) */}
                   {[...inflowData]
                     .sort((a, b) => {
-                      // Convert dates to comparable format (earliest first)
+                      // Convert dates to comparable format (most recent first)
                       const dateA = new Date(a.date).getTime()
                       const dateB = new Date(b.date).getTime()
-                      return dateA - dateB
+                      return dateB - dateA
                     })
                     .map((inflow) => (
                       <tr key={inflow.id} className="hover:bg-gray-50">
@@ -580,13 +583,13 @@ export default function Accounting() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {/* Sort outflow data by date (earliest first) */}
+                  {/* Sort outflow data by date (most recent first) */}
                   {[...outflowData]
                     .sort((a, b) => {
-                      // Convert dates to comparable format (earliest first)
+                      // Convert dates to comparable format (most recent first)
                       const dateA = new Date(a.date).getTime()
                       const dateB = new Date(b.date).getTime()
-                      return dateA - dateB
+                      return dateB - dateA
                     })
                     .map((outflow) => (
                       <tr key={outflow.id} className="hover:bg-gray-50">

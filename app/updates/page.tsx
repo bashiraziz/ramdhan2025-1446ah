@@ -4,6 +4,13 @@ import { ChevronLeft } from "lucide-react"
 // Mock data for updates
 const updates = [
   {
+    id: 8,
+    title: "Umar Kanjule Recovers from Minor Accident",
+    date: "3/19/2025",
+    content:
+      "We're grateful to report that Umar Kanjule is safe following a minor accident. He had been working tirelessly on purchasing supplies, packing rations, and distributing food to various masjids and remote villages. Due to fatigue and lack of sleep, he momentarily dozed off while driving. The car veered off the road and ended up in wetlands adjacent to the roadway. Fortunately, the vehicle did not overturn, and Umar is unharmed. We ask for your continued prayers for his well-being as he continues this important work.",
+  },
+  {
     id: 7,
     title: "Distribution in Kyampisi",
     date: "3/18/2025",
@@ -82,4 +89,3 @@ export default function Updates() {
     </div>
   )
 }
-
