@@ -122,6 +122,18 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="border border-gray-200 rounded-lg overflow-hidden">
             <div className="p-4 border-b border-gray-200 bg-green-50">
+              <h3 className="font-bold">Door to Door Distribution Started</h3>
+              <p className="text-sm text-gray-500">3/25/2025</p>
+            </div>
+            <div className="p-4">
+              <p className="text-gray-700">
+                Door to door distribution started today after delivery aboke masjid share.
+              </p>
+            </div>
+          </div>
+
+          <div className="border border-gray-200 rounded-lg overflow-hidden">
+            <div className="p-4 border-b border-gray-200 bg-green-50">
               <h3 className="font-bold">Distribution in Kyampisi</h3>
               <p className="text-sm text-gray-500">3/18/2025</p>
             </div>
@@ -139,20 +151,6 @@ export default function Home() {
             </div>
             <div className="p-4">
               <p className="text-gray-700">Additional second purchase done today in Lira.</p>
-            </div>
-          </div>
-
-          <div className="border border-gray-200 rounded-lg overflow-hidden">
-            <div className="p-4 border-b border-gray-200 bg-green-50">
-              <h3 className="font-bold">Reaching Hard-to-Reach Areas</h3>
-              <p className="text-sm text-gray-500">3/14/2025</p>
-            </div>
-            <div className="p-4">
-              <p className="text-gray-700">
-                May you and all the donors be rewarded abundantly as I have reached in some hard to reach areas where
-                the beneficiaries are saying it's their first time to receive Ramadan iftar ever since. Jazakallah
-                khayran.
-              </p>
             </div>
           </div>
         </div>

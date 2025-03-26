@@ -1,8 +1,14 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
-// Mock data for updates
+// Update the updates array by adding a new entry at the beginning
 const updates = [
+  {
+    id: 9,
+    title: "Door to Door Distribution Started",
+    date: "3/25/2025",
+    content: "Door to door distribution started today after delivery aboke masjid share.",
+  },
   {
     id: 8,
     title: "Umar Kanjule Recovers from Minor Accident",
