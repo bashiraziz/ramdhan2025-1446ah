@@ -1,81 +1,233 @@
 [
-    {
-      "id": "1",
-      "receiptNumber": "475",
-      "date": "2025-02-25",
-      "vendor": "MTU Best Miller",
-      "amount": 3990000,
-      "description": "Posho 2100 kg",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/475.jpg",
-      "createdAt": "2025-02-25T10:30:00Z"
-    },
-    {
-      "id": "2",
-      "receiptNumber": "571",
-      "date": "2025-03-05",
-      "vendor": "MTU Best Miller",
-      "amount": 6930000,
-      "description": "Rice 2100 kg",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/571.jpg",
-      "createdAt": "2025-03-05T11:15:00Z"
-    },
-    {
-      "id": "3",
-      "receiptNumber": "LE-52423",
-      "date": "2025-02-26",
-      "vendor": "Sagar Trading",
-      "amount": 8745000,
-      "description": "Sugar 700 kg, Cooking Oil, Bags",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/27808.jpg",
-      "createdAt": "2025-02-26T14:20:00Z"
-    },
-    {
-      "id": "4",
-      "receiptNumber": "27808",
-      "date": "2025-03-05",
-      "vendor": "Jamiru Mutto",
-      "amount": 1443500,
-      "description": "Sugar, Rice, Cooking Oil, Bags",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/27808.jpg",
-      "createdAt": "2025-03-05T16:45:00Z"
-    },
-    {
-      "id": "5",
-      "receiptNumber": "27812",
-      "date": "2025-03-06",
-      "vendor": "Jamiru Mutto",
-      "amount": 454500,
-      "description": "Sugar, Rice, Cooking Oil, Bags",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/27812.jpg",
-      "createdAt": "2025-03-06T09:30:00Z"
-    },
-    {
-      "id": "6",
-      "receiptNumber": "1803202501014",
-      "date": "2025-03-18",
-      "vendor": "Trend Shoppers",
-      "amount": 1172000,
-      "description": "Rice, Sugar, Posho, Cooking Oil, Bags",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/1803202501014.jpg",
-      "createdAt": "2025-03-18T13:20:00Z"
-    },
-    {
-      "id": "7",
-      "receiptNumber": "15032025010115",
-      "date": "2025-03-18",
-      "vendor": "Trend Shoppers",
-      "amount": 1328000,
-      "description": "Rice, Sugar, Posho, Cooking Oil",
-      "category": "Food Supplies",
-      "imagePath": "/receipts/15032025010115.jpg",
-      "createdAt": "2025-03-18T15:45:00Z"
-    }
-  ]
-  
-  
+  {
+    "id": "1",
+    "receiptNumber": "475",
+    "date": "2025-02-25",
+    "vendor": "MTU Best Miller",
+    "amount": 3990000,
+    "description": "Posho 2100 kg",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/475.jpg",
+    "createdAt": "2025-02-25T10:30:00Z"
+  },
+  {
+    "id": "2",
+    "receiptNumber": "571",
+    "date": "2025-03-05",
+    "vendor": "MTU Best Miller",
+    "amount": 6930000,
+    "description": "Rice 2100 kg",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/571.jpg",
+    "createdAt": "2025-03-05T11:15:00Z"
+  },
+  {
+    "id": "3",
+    "receiptNumber": "LE-52423",
+    "date": "2025-02-26",
+    "vendor": "Sagar Trading",
+    "amount": 8745000,
+    "description": "Sugar 700 kg, Cooking Oil, Bags",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/27808.jpg",
+    "createdAt": "2025-02-26T14:20:00Z"
+  },
+  {
+    "id": "4",
+    "receiptNumber": "27808",
+    "date": "2025-03-05",
+    "vendor": "Jamiru Mutto",
+    "amount": 1443500,
+    "description": "Sugar, Rice, Cooking Oil, Bags",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/27808.jpg",
+    "createdAt": "2025-03-05T16:45:00Z"
+  },
+  {
+    "id": "5",
+    "receiptNumber": "27812",
+    "date": "2025-03-06",
+    "vendor": "Jamiru Mutto",
+    "amount": 454500,
+    "description": "Sugar, Rice, Cooking Oil, Bags",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/27812.jpg",
+    "createdAt": "2025-03-06T09:30:00Z"
+  },
+  {
+    "id": "6",
+    "receiptNumber": "1803202501014",
+    "date": "2025-03-18",
+    "vendor": "Trend Shoppers",
+    "amount": 1172000,
+    "description": "Rice, Sugar, Posho, Cooking Oil, Bags",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/1803202501014.jpg",
+    "createdAt": "2025-03-18T13:20:00Z"
+  },
+  {
+    "id": "7",
+    "receiptNumber": "15032025010115",
+    "date": "2025-03-18",
+    "vendor": "Trend Shoppers",
+    "amount": 1328000,
+    "description": "Rice, Sugar, Posho, Cooking Oil",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/15032025010115.jpg",
+    "createdAt": "2025-03-18T15:45:00Z"
+  },
+  {
+    "id": "1743885388107l8ugq9d",
+    "createdAt": "2025-04-05T20:36:28.107Z",
+    "receiptNumber": "00123",
+    "date": "2025-03-13",
+    "vendor": "Pamoja Enterprices",
+    "amount": 5535000,
+    "description": "Sugar and Cooking Oil",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/receipt-1743885388087-00123.jpg"
+  },
+  {
+    "id": "17439085535298iwrn32",
+    "createdAt": "2025-04-06T03:02:33.529Z",
+    "receiptNumber": "008",
+    "date": "2025-09-19",
+    "vendor": "SISU Orphanage ",
+    "amount": 1070328,
+    "description": "Ramdhan food donation",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/receipt-1743908553511-008.jpg"
+  },
+  {
+    "id": "1743908707447h93x3bm",
+    "createdAt": "2025-04-06T03:05:07.447Z",
+    "receiptNumber": "8",
+    "date": "2025-03-18",
+    "vendor": "Rahmatul Yateem",
+    "amount": 1070331,
+    "description": "Ramdhan food donation",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/receipt-1743908707439-8.jpg"
+  },
+  {
+    "id": "1743908841314hcxigpr",
+    "createdAt": "2025-04-06T03:07:21.314Z",
+    "receiptNumber": "6434",
+    "date": "2025-03-13",
+    "vendor": "Golden Gas Ltd",
+    "amount": 336000,
+    "description": "Fuel",
+    "category": "Transportation",
+    "imagePath": "/receipts/receipt-1743908841289-6434.jpg"
+  },
+  {
+    "id": "17439089762787p4uasl",
+    "createdAt": "2025-04-06T03:09:36.278Z",
+    "receiptNumber": "263",
+    "date": "2025-03-13",
+    "vendor": "Jamorra Traders",
+    "amount": 156000,
+    "description": "Green, black and white bags",
+    "category": "Packing Supplies",
+    "imagePath": "/receipts/receipt-1743908976267-263.jpg"
+  },
+  {
+    "id": "174390910269468olnwj",
+    "createdAt": "2025-04-06T03:11:42.695Z",
+    "receiptNumber": "280",
+    "date": "2025-02-27",
+    "vendor": "Jamorra Traders",
+    "amount": 21000,
+    "description": "White Bags",
+    "category": "Packing Supplies",
+    "imagePath": "/receipts/receipt-1743909102661-280.jpg"
+  },
+  {
+    "id": "1743909232052naxqejs",
+    "createdAt": "2025-04-06T03:13:52.052Z",
+    "receiptNumber": "00123",
+    "date": "2025-03-13",
+    "vendor": "Pamoja Enterprises",
+    "amount": 5535000,
+    "description": "Sugar 450 kg and cooking oil 450 liters ",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/receipt-1743909232010-00123.jpg"
+  },
+  {
+    "id": "17439093423489rnt6ma",
+    "createdAt": "2025-04-06T03:15:42.348Z",
+    "receiptNumber": "495",
+    "date": "2025-03-13",
+    "vendor": "MTU Best Miller",
+    "amount": 6840000,
+    "description": "Posho 3600 kg",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/receipt-1743909342320-495.jpg"
+  },
+  {
+    "id": "1743909851066xz5vvx1",
+    "createdAt": "2025-04-06T03:24:11.066Z",
+    "receiptNumber": "142",
+    "date": "2025-03-13",
+    "vendor": "Hayat",
+    "amount": 11520000,
+    "description": "Rice 3600 kg",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/receipt-1743909851046-142.jpg"
+  },
+  {
+    "id": "1743910030533c8u1kfn",
+    "createdAt": "2025-04-06T03:27:10.533Z",
+    "receiptNumber": "472247-2",
+    "date": "2025-03-17",
+    "vendor": "Munsur Suwod",
+    "amount": 500000,
+    "description": "Auto rental",
+    "category": "Transportation",
+    "imagePath": "/receipts/receipt-1743910030524-472247-2.jpg"
+  },
+  {
+    "id": "17439101337373axrmkj",
+    "createdAt": "2025-04-06T03:28:53.737Z",
+    "receiptNumber": "472247",
+    "date": "2025-03-26",
+    "vendor": "Munsur Suwod",
+    "amount": 700000,
+    "description": "Auto Rental",
+    "category": "Transportation",
+    "imagePath": "/receipts/receipt-1743910133728-472247.jpg"
+  },
+  {
+    "id": "1743910239111g0k94jf",
+    "createdAt": "2025-04-06T03:30:39.111Z",
+    "receiptNumber": "6518",
+    "date": "2025-03-28",
+    "vendor": "Golden Gas Ltd",
+    "amount": 150000,
+    "description": "Fuel",
+    "category": "Transportation",
+    "imagePath": "/receipts/receipt-1743910239102-6518.jpg"
+  },
+  {
+    "id": "17439102959336qdjvd5",
+    "createdAt": "2025-04-06T03:31:35.933Z",
+    "receiptNumber": "6517",
+    "date": "2025-03-18",
+    "vendor": "Golden Gas Ltd",
+    "amount": 250000,
+    "description": "Fuel",
+    "category": "Transportation",
+    "imagePath": "/receipts/receipt-1743910295923-6517.jpg"
+  },
+  {
+    "id": "1743910374879ijsk3xg",
+    "createdAt": "2025-04-06T03:32:54.879Z",
+    "receiptNumber": "AutoRental1",
+    "date": "2025-03-26",
+    "vendor": "Umar Kanjule",
+    "amount": 500000,
+    "description": "Auto rental",
+    "category": "Transportation",
+    "imagePath": null
+  }
+]

@@ -6,9 +6,9 @@ import { addReceipt, deleteReceipt } from "@/lib/receipts"
 import { headers } from "next/headers"
 
 // Helper function to get the base URL
-function getBaseUrl() {
+async function getBaseUrl() {
   // Check for the x-forwarded-host header first (for Vercel deployments)
-  const headersList = headers()
+  const headersList = await headers()
   const host = headersList.get("host") || "localhost:3000"
   const protocol = host.includes("localhost") ? "http" : "https"
   return `${protocol}://${host}`
@@ -33,7 +33,7 @@ export async function uploadReceiptAction(formData: FormData) {
       imageFormData.append("file", file)
 
       // Get the base URL for the API endpoint
-      const baseUrl = getBaseUrl()
+      const baseUrl = await getBaseUrl()
       const apiUrl = `${baseUrl}/api/upload-receipt`
 
       // Upload to local storage with absolute URL
@@ -82,4 +82,3 @@ export async function deleteReceiptAction(id: string) {
     return { success: false, error: "Failed to delete receipt" }
   }
 }
-

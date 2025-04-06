@@ -18,13 +18,14 @@ const inflows = [
   { id: 13, donor: "Rashid 5", date: "February 28, 2025", amount: 500 },
 ]
 
-// Updated disbursements with new entries
+// Updated disbursements - added back 3/9/2025 and removed 3/21/2025
 const disbursements = [
-  // New disbursement added on March 21, 2025
-  { id: 7, date: "3/21/2025", location: "Kampala", amountUGX: 1783930, amountUSD: 500 },
+  // Removed the 3/21/2025 Kampala disbursement
+
   // Existing disbursements
   { id: 1, date: "2/24/2025", location: "Lira", amountUGX: 25100000, amountUSD: 7025 },
   { id: 2, date: "2/24/2025", location: "Kampala", amountUGX: 1968170, amountUSD: 550 },
+  // Added back the 3/9/2025 Kampala disbursement
   { id: 3, date: "3/9/2025", location: "Kampala", amountUGX: 2500000, amountUSD: 700 },
   { id: 4, date: "3/10/2025", location: "Lira", amountUGX: 24100922, amountUSD: 6825 },
   { id: 5, date: "3/17/2025", location: "Rehmant ul Yateem", amountUGX: 1070331, amountUSD: 300 },
