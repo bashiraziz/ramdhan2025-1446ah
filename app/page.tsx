@@ -46,7 +46,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">780+ Families</h3>
+              <h3 className="text-xl font-bold text-gray-800">Over 800+ Families</h3>
               <p className="text-gray-600">Supported with food packages</p>
             </div>
 
@@ -54,7 +54,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">28 Locations</h3>
+              <h3 className="text-xl font-bold text-gray-800">Over 28 Locations</h3>
               <p className="text-gray-600">Across Uganda</p>
             </div>
 
@@ -62,7 +62,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">2,450+ kg</h3>
+              <h3 className="text-xl font-bold text-gray-800">6050+ kg</h3>
               <p className="text-gray-600">of Rice distributed</p>
             </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">1,050+ kg</h3>
+              <h3 className="text-xl font-bold text-gray-800">1500+ kg</h3>
               <p className="text-gray-600">of Sugar distributed</p>
             </div>
 
@@ -78,7 +78,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">2,300+ kg</h3>
+              <h3 className="text-xl font-bold text-gray-800">5900+ kg</h3>
               <p className="text-gray-600">of Posho distributed</p>
             </div>
 
@@ -86,7 +86,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">830+ Liter</h3>
+              <h3 className="text-xl font-bold text-gray-800">1280+ Liter</h3>
               <p className="text-gray-600">of Cooking Oil distributed</p>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* Donors Link Section */}
       <section className="container mx-auto px-4 py-12 text-center">
-        <div className="max-w-3xl mx-auto border-t border-gray-200 pt-8">
+        <div className="max-w3xl mx-auto border-t border-gray-200 pt-8">
           <h2 className="text-2xl font-bold text-green-800 mb-4">Our Generous Donors</h2>
           <p className="text-gray-600 mb-6">
             We are grateful to all individuals who have contributed to our Ramadan food distribution initiative.
