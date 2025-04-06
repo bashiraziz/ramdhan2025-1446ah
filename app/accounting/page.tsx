@@ -466,6 +466,15 @@ const outflowData = [
     category: "Food Supplies",
     amount: 1070331,
   },
+  {
+    id: 52,
+    date: "3/20/2025",
+    vendor: "Umar Kanjule",
+    receipt: "NA",
+    description: "Eid dinner",
+    category: "Labor",
+    amount: 300000,
+  },
 ]
 
 // Detailed inflow data from the provided image
