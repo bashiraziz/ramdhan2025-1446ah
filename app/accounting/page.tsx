@@ -475,6 +475,42 @@ const outflowData = [
     category: "Labor",
     amount: 300000,
   },
+  {
+    id: 53,
+    date: "3/27/2025", // Changed from 3/18/2025
+    vendor: "Trend Shoppers",
+    receipt: "Kampala-3rd-2",
+    description: "Rice 100kg, Sugar 100kg, Posho 100kg, Green Bags, White Bags, Cooking Oil",
+    category: "Food Supplies",
+    amount: 1172000,
+  },
+  {
+    id: 54,
+    date: "3/27/2025", // Changed from 3/18/2025
+    vendor: "Trend Shoppers",
+    receipt: "Kampala-3rd-1",
+    description: "Rice 100kg, Sugar 100kg, Posho 100kg, Green Bags, White Bags",
+    category: "Food Supplies",
+    amount: 908000,
+  },
+  {
+    id: 55,
+    date: "3/27/2025", // Changed from 3/18/2025
+    vendor: "Distribution Charges",
+    receipt: "NA",
+    description: "Misc",
+    category: "Misc",
+    amount: 129173, // Changed from 80000
+  },
+  {
+    id: 56,
+    date: "04/12/2025",
+    vendor: "Umar Kanjule",
+    receipt: "NA",
+    description: "Paid to Umar for his efforts",
+    category: "Labor",
+    amount: 500000,
+  },
 ]
 
 // Detailed inflow data from the provided image
@@ -486,6 +522,8 @@ const inflowData = [
   { id: 4, date: "3/10/2025", location: "Lira", amount: 24100922, status: "Received", usdAmount: 6825 },
   { id: 5, date: "3/17/2025", location: "Rehmant ul Yateem", amount: 1070331, status: "Received", usdAmount: 300 },
   { id: 6, date: "3/17/2025", location: "SISU Orphanage", amount: 1070331, status: "Received", usdAmount: 300 },
+  { id: 7, date: "3/21/2025", location: "Kampala", amount: 2160000, status: "Received", usdAmount: 600 },
+  { id: 8, date: "3/30/2025", location: "Lira", amount: 300003, status: "Received", usdAmount: 84 },
 ]
 
 export default function Accounting() {
