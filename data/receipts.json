@@ -229,5 +229,181 @@
     "description": "Auto rental",
     "category": "Transportation",
     "imagePath": null
+  },
+  {
+    "id": "17444983431404bc6zkk",
+    "receiptNumber": "00123",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/00123.jpg",
+    "createdAt": "2025-04-12T22:52:23.140Z"
+  },
+  {
+    "id": "17444983431418lbd3te",
+    "receiptNumber": "008",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/008.jpg",
+    "createdAt": "2025-04-12T22:52:23.141Z"
+  },
+  {
+    "id": "174449834314181iit8r",
+    "receiptNumber": "142",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/142.jpg",
+    "createdAt": "2025-04-12T22:52:23.141Z"
+  },
+  {
+    "id": "1744498343141ny3nhss",
+    "receiptNumber": "263",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/263.jpg",
+    "createdAt": "2025-04-12T22:52:23.141Z"
+  },
+  {
+    "id": "1744498343142cd4m7ke",
+    "receiptNumber": "280",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/280.jpg",
+    "createdAt": "2025-04-12T22:52:23.142Z"
+  },
+  {
+    "id": "1744498343142eq3yskg",
+    "receiptNumber": "472247-2",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/472247-2.jpg",
+    "createdAt": "2025-04-12T22:52:23.142Z"
+  },
+  {
+    "id": "1744498343142ztujcxc",
+    "receiptNumber": "472247",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/472247.jpg",
+    "createdAt": "2025-04-12T22:52:23.142Z"
+  },
+  {
+    "id": "17444983431423lst8tu",
+    "receiptNumber": "495",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/495.jpg",
+    "createdAt": "2025-04-12T22:52:23.142Z"
+  },
+  {
+    "id": "17444983431438mmxmy7",
+    "receiptNumber": "6434",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/6434.jpg",
+    "createdAt": "2025-04-12T22:52:23.143Z"
+  },
+  {
+    "id": "17444983431431h00pij",
+    "receiptNumber": "6517",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/6517.jpg",
+    "createdAt": "2025-04-12T22:52:23.143Z"
+  },
+  {
+    "id": "17444983431437zapka2",
+    "receiptNumber": "6518",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/6518.jpg",
+    "createdAt": "2025-04-12T22:52:23.143Z"
+  },
+  {
+    "id": "1744498343144c884yw7",
+    "receiptNumber": "8",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/8.jpg",
+    "createdAt": "2025-04-12T22:52:23.144Z"
+  },
+  {
+    "id": "1744498343144qciimxp",
+    "receiptNumber": "Autorental1",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/Autorental1.jpg",
+    "createdAt": "2025-04-12T22:52:23.144Z"
+  },
+  {
+    "id": "1744498343144wmlgjm7",
+    "receiptNumber": "Kampala-3rd-1",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/Kampala-3rd-1.jpeg",
+    "createdAt": "2025-04-12T22:52:23.144Z"
+  },
+  {
+    "id": "1744498343144i3ohcet",
+    "receiptNumber": "Kampala-3rd-2",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/Kampala-3rd-2.jpeg",
+    "createdAt": "2025-04-12T22:52:23.144Z"
+  },
+  {
+    "id": "1744498343144ihoun4t",
+    "receiptNumber": "LE-52423",
+    "date": "2025-04-12",
+    "vendor": "Please update vendor name",
+    "amount": 0,
+    "description": "Please update description",
+    "category": "Food Supplies",
+    "imagePath": "/receipts/LE-52423.jpg",
+    "createdAt": "2025-04-12T22:52:23.144Z"
   }
 ]
