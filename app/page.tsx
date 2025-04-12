@@ -62,7 +62,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">6050+ kg</h3>
+              <h3 className="text-xl font-bold text-gray-800">6250+ kg</h3>
               <p className="text-gray-600">of Rice distributed</p>
             </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">1500+ kg</h3>
+              <h3 className="text-xl font-bold text-gray-800">1700+ kg</h3>
               <p className="text-gray-600">of Sugar distributed</p>
             </div>
 
@@ -78,7 +78,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">5900+ kg</h3>
+              <h3 className="text-xl font-bold text-gray-800">6100+ kg</h3>
               <p className="text-gray-600">of Posho distributed</p>
             </div>
 
@@ -86,7 +86,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">1280+ Liter</h3>
+              <h3 className="text-xl font-bold text-gray-800">1300+ Liter</h3>
               <p className="text-gray-600">of Cooking Oil distributed</p>
             </div>
           </div>

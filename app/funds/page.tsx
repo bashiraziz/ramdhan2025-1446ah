@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
-// Updated data for funds
+// Update the inflows array to add the new Rashid 6 donor
 const inflows = [
   { id: 1, donor: "Rashid 1", date: "February 10, 2025", amount: 500 },
   { id: 2, donor: "Rashid 2", date: "February 10, 2025", amount: 500 },
@@ -16,6 +16,7 @@ const inflows = [
   { id: 11, donor: "Donor 11", date: "February 19, 2025", amount: 1000 },
   { id: 12, donor: "Donor 12", date: "February 22, 2025", amount: 2000 },
   { id: 13, donor: "Rashid 5", date: "February 28, 2025", amount: 500 },
+  { id: 14, donor: "Rashid 6", date: "March 9, 2025", amount: 2250 },
 ]
 
 // Updated disbursements - added back 3/9/2025 and removed 3/21/2025
@@ -186,3 +187,4 @@ export default function Funds() {
     </div>
   )
 }
+

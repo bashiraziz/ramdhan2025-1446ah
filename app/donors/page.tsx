@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ChevronLeft, Heart } from "lucide-react"
 
-// Update the donors array to remove actual names except for Rashid's donors
+// Update the donors array to add the new Rashid 6 donor
 const donors = [
   {
     id: 1,
@@ -94,6 +94,13 @@ const donors = [
     amount: 500,
     date: "February 28, 2025",
   },
+  {
+    id: 14,
+    name: "Rashid 6",
+    location: "Houston, USA",
+    amount: 2250,
+    date: "March 9, 2025",
+  },
 ]
 
 // Calculate total donations
@@ -143,4 +150,3 @@ export default function Donors() {
     </div>
   )
 }
-
