@@ -19,7 +19,7 @@ const inflows = [
   { id: 14, donor: "Rashid 6", date: "March 9, 2025", amount: 2250 },
 ]
 
-// Updated disbursements - added back 3/9/2025 and removed 3/21/2025
+// Update the disbursements array to add the surplus returned from Lira
 const disbursements = [
   // Existing disbursements
   { id: 1, date: "2/24/2025", location: "Lira", amountUGX: 25100000, amountUSD: 7025 },
@@ -30,6 +30,7 @@ const disbursements = [
   { id: 6, date: "3/17/2025", location: "SISU Orphanage", amountUGX: 1070331, amountUSD: 300 },
   { id: 7, date: "3/21/2025", location: "Kampala", amountUGX: 2160000, amountUSD: 600 },
   { id: 8, date: "3/30/2025", location: "Lira", amountUGX: 300003, amountUSD: 84 },
+  { id: 9, date: "4/20/2025", location: "Lira (Surplus Returned)", amountUGX: -1786122, amountUSD: -500 },
 ]
 
 export default function Funds() {
@@ -161,11 +162,15 @@ export default function Funds() {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {disbursement.location}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
-                        {disbursement.amountUSD.toLocaleString()}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-right">
+                        <span className={disbursement.amountUSD < 0 ? "text-green-600 font-medium" : "text-gray-500"}>
+                          {disbursement.amountUSD.toLocaleString()}
+                        </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
-                        {disbursement.amountUGX.toLocaleString()}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-right">
+                        <span className={disbursement.amountUGX < 0 ? "text-green-600 font-medium" : "text-gray-500"}>
+                          {disbursement.amountUGX.toLocaleString()}
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -187,4 +192,3 @@ export default function Funds() {
     </div>
   )
 }
-

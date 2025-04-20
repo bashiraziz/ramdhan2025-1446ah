@@ -524,6 +524,14 @@ const inflowData = [
   { id: 6, date: "3/17/2025", location: "SISU Orphanage", amount: 1070331, status: "Received", usdAmount: 300 },
   { id: 7, date: "3/21/2025", location: "Kampala", amount: 2160000, status: "Received", usdAmount: 600 },
   { id: 8, date: "3/30/2025", location: "Lira", amount: 300003, status: "Received", usdAmount: 84 },
+  {
+    id: 9,
+    date: "4/20/2025",
+    location: "Lira (Surplus Returned)",
+    amount: -1786122,
+    status: "Returned",
+    usdAmount: -500,
+  },
 ]
 
 export default function Accounting() {
@@ -778,14 +786,24 @@ export default function Accounting() {
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                           {inflow.location}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                          {inflow.amount.toLocaleString()}
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-right">
+                          <span className={inflow.amount < 0 ? "text-green-600 font-medium" : "text-gray-900"}>
+                            {inflow.amount.toLocaleString()}
+                          </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right">
-                          {inflow.usdAmount ? inflow.usdAmount.toLocaleString() : "—"}
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-right">
+                          <span className={inflow.usdAmount < 0 ? "text-green-600 font-medium" : "text-gray-900"}>
+                            {inflow.usdAmount ? inflow.usdAmount.toLocaleString() : "—"}
+                          </span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+                          <span
+                            className={`px-2 py-1 text-xs font-medium rounded-full ${
+                              inflow.status === "Returned"
+                                ? "bg-green-100 text-green-800"
+                                : "bg-green-100 text-green-800"
+                            }`}
+                          >
                             {inflow.status}
                           </span>
                         </td>
